@@ -11,6 +11,7 @@ import DashboardTable from "@/components/Dashboard/DashboardTable";
 import DashboardPieChart from "@/components/Dashboard/DashboardPieChart";
 import { IDealsAndRevenue, ITopRevenue } from "@/types/dashboard";
 import { HiChevronRight } from "react-icons/hi";
+import { CiSearch } from "react-icons/ci";
 const Dashboard = () => {
   const { businessMetricData } = useGetBusinessMetrics();
 
@@ -22,7 +23,17 @@ const Dashboard = () => {
       <PageHeader
         isSearch
         title="Dashboard"
-        SecondaryContent={<h2>Hello world</h2>}
+        SecondaryContent={
+          <div
+            className={`flex h-9 w-[400px] items-center rounded-[9px] border border-dark-light px-4 `}
+          >
+            <CiSearch className="h-8 w-8" />
+            <input
+              type="text"
+              className="w-full border-[0px] bg-white p-2 text-xs outline-[0px] placeholder:text-[13.5px] placeholder:lowercase focus:border-none focus:outline-0"
+            />
+          </div>
+        }
       />
       <Box className="grid grid-cols-2">
         <Box className="grid grid-cols-2  grid-rows-2 ">
@@ -52,13 +63,19 @@ const Dashboard = () => {
           />
         </Box>
         <Box className="border border-red flex flex-col px-4">
-          <Box className="flex justify-between py-4">
+          <Box className="flex justify-between py-4 items-center">
             <h2 className="text-dark-main font-bold text-2xl">
               Deals & Revenue
             </h2>
             <div className="flex justify-between items-center gap-2">
-              <p>Details</p>
-              <p>Revenue</p>
+              <p className="flex items-center gap-2">
+                <span className="h-2 w-2  rounded-full bg-red-400"></span>
+                <span className="text-sm"> Deals</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="h-2 w-2  rounded-full bg-purple-400"></span>
+                <span className="text-sm"> Revenue</span>
+              </p>
             </div>
           </Box>
           <LineGraph
