@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.linearGradient {
+  background-image: linear-gradient(
+    131deg,
+    #dcffbf 0%,
+    #dcffbf 36%,
+    #8ce99a 78%,
+    #8ce99a 100%
+  );
+}
