@@ -1,6 +1,6 @@
 import useGetCampaignPerformance from "@/hooks/useGetCampaignPerformance";
 import CustomTable from "../common/Table/CustomTable";
-import { formatter, numberFormatter } from "@/helpers/formatter";
+import { capitalize, formatter, numberFormatter } from "@/helpers/formatter";
 import { tableHeadNames } from "./constants";
 
 export type IDashboardTableKey = {
@@ -36,20 +36,38 @@ const DashboardTable = () => {
             <img src={logo} alt="Logo" />
           </div>
           <p className="flex flex-col gap-1">
-            <span className="font-bold text-xl">{campaign}</span>
-            <span>{type}</span>
+            <span className="font-semibold text-gray-700 text-xl">
+              {capitalize(campaign)}
+            </span>
+            <span className="font-bold text-gray-400">{type}</span>
           </p>
         </div>
       ),
-      companies,
-      contacts,
-      leads,
+      companies: (
+        <span className="text-gray-400 font-bold">
+          {numberFormatter(companies)}
+        </span>
+      ),
+      contacts: (
+        <span className="text-gray-400 font-bold">
+          {numberFormatter(contacts)}
+        </span>
+      ),
+      leads: (
+        <span className=" font-bold text-gray-700">
+          {numberFormatter(leads)}
+        </span>
+      ),
       logo,
       type,
       value: (
-        <span className="text-primary font-bold ">{formatter(value)}</span>
+        <span className="text-lime-500 font-bold ">{formatter(value)}</span>
       ),
-      visitors: numberFormatter(visitors),
+      visitors: (
+        <span className="text-gray-400 font-bold">
+          {numberFormatter(visitors)}
+        </span>
+      ),
       id,
     };
   };

@@ -25,12 +25,13 @@ const Dashboard = () => {
         title="Dashboard"
         SecondaryContent={
           <div
-            className={`flex h-9 w-[400px] items-center rounded-[9px] border border-dark-light px-4 `}
+            className={`flex h-9 w-[300px] items-center  border border-red px-4 `}
           >
             <CiSearch className="h-8 w-8" />
             <input
               type="text"
-              className="w-full border-[0px] bg-white p-2 text-xs outline-[0px] placeholder:text-[13.5px] placeholder:lowercase focus:border-none focus:outline-0"
+              placeholder="Search..."
+              className="w-full border-[0px] bg-white p-2  text-xs outline-[0px] placeholder:text-[18.5px] placeholder:lowercase focus:border-none focus:outline-0"
             />
           </div>
         }
@@ -64,7 +65,7 @@ const Dashboard = () => {
         </Box>
         <Box className="border border-red flex flex-col px-4">
           <Box className="flex justify-between py-4 items-center">
-            <h2 className="text-dark-main font-bold text-2xl">
+            <h2 className="text-gray-700 font-bold text-2xl">
               Deals & Revenue
             </h2>
             <div className="flex justify-between items-center gap-2">
@@ -89,16 +90,24 @@ const Dashboard = () => {
       <Box className="grid grid-cols-[3fr_1fr] mt-10 gap-4">
         <div className="border border-red pt-4">
           <div className="flex justify-between items-center px-4 mb-4">
-            <h2 className="font-bold text-xl text-dark">
+            <h2 className="font-bold text-2xl text-gray-700">
               Campaign Performance
             </h2>
-            <span className="bg-gray-300 rounded-lg px-4">Channels: All</span>
+            <div className="flex gap-2 items-center ">
+              <span className="bg-[#eee] rounded-lg p-2">
+                <CiSearch />
+              </span>
+              <span className="bg-[#eee] rounded-lg px-4 py-1">
+                Channels:
+                <span className="text-gray-700 font-bold ml-1">All</span>
+              </span>
+            </div>
           </div>
           <DashboardTable />
         </div>
         <div className="border border-red pt-4 bg-[#fff]">
           <div className="flex justify-between items-center px-4">
-            <h2 className="font-bold text-xl text-dark ">
+            <h2 className="font-bold text-2xl text-gray-700 ">
               Top Revenue Channels
             </h2>
             <HiChevronRight />
