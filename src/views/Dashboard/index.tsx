@@ -36,8 +36,8 @@ const Dashboard = () => {
           </div>
         }
       />
-      <Box className="grid grid-cols-2">
-        <Box className="grid grid-cols-2  grid-rows-2 ">
+      <Box className="grid grid-cols-2 rounded-lg overflow-hidden">
+        <Box className="grid grid-cols-2 overflow-hidden  grid-rows-2 ">
           <Card
             isbg
             color="green"
@@ -63,7 +63,7 @@ const Dashboard = () => {
             percent={businessMetricData?.revenue?.changePercentage as number}
           />
         </Box>
-        <Box className="border border-red flex flex-col px-4">
+        <Box className="border  border-red flex flex-col px-4">
           <Box className="flex justify-between py-4 items-center">
             <h2 className="text-gray-700 font-bold text-2xl">
               Deals & Revenue
@@ -88,7 +88,7 @@ const Dashboard = () => {
         </Box>
       </Box>
       <Box className="grid grid-cols-[3fr_1fr] mt-10 gap-4">
-        <div className="border border-red pt-4">
+        <div className="border rounded-lg border-red pt-4">
           <div className="flex justify-between items-center px-4 mb-4">
             <h2 className="font-bold text-2xl text-gray-700">
               Campaign Performance
@@ -105,7 +105,7 @@ const Dashboard = () => {
           </div>
           <DashboardTable />
         </div>
-        <div className="border border-red pt-4 bg-[#fff]">
+        <div className="border rounded-lg border-red pt-4 bg-[#fff]">
           <div className="flex justify-between items-center px-4">
             <h2 className="font-bold text-2xl text-gray-700 ">
               Top Revenue Channels

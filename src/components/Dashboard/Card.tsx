@@ -6,7 +6,7 @@ const Card = ({ isbg = false, color = "", count, percent, title }: ICard) => {
   return (
     <article
       className={clsx(
-        "px-4 py-2 border border-red h-44 w-full flex  flex-col justify-around",
+        "px-4 py-2 border border-red h-44 w-full flex  flex-col justify-around ",
         {
           linearGradient: isbg && color === "green",
         }
