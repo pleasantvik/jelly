@@ -68,7 +68,9 @@ const DashboardTable = () => {
           {numberFormatter(visitors)}
         </span>
       ),
-      id,
+      id: (
+        <span className="text-gray-400 font-bold">{numberFormatter(id)}</span>
+      ),
     };
   };
 
