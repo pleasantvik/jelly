@@ -113,6 +113,24 @@ const Dashboard = () => {
             <HiChevronRight />
           </div>
           <DashboardPieChart data={topRevenueData as ITopRevenue} />
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <p className="flex items-center gap-2">
+              <span className="h-2 w-2  rounded-full bg-piechat-direct"></span>
+              <span className="text-sm"> Direct</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="h-2 w-2  rounded-full bg-piechat-paid"></span>
+              <span className="text-sm"> Paid</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="h-2 w-2  rounded-full bg-piechat-social"></span>
+              <span className="text-sm"> Social</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="h-2 w-2  rounded-full bg-piechat-other"></span>
+              <span className="text-sm"> Other</span>
+            </p>
+          </div>
         </div>
       </Box>
     </PageContainer>

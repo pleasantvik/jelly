@@ -28,6 +28,12 @@ export default {
           DEFAULT: "#396DF2",
           yellow: "#F2C70D",
         },
+        piechat: {
+          direct: "#0088FE",
+          other: "#00C49F",
+          paid: "#FFBB28",
+          social: "#FF8042",
+        },
       },
     },
   },

@@ -1,40 +1,62 @@
 import { ITopRevenue } from "@/types/dashboard";
-import { PieChart, Pie, Cell } from "recharts";
+import { useDrawingArea } from "@mui/x-charts";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+import { styled } from "@mui/material/styles";
+import { formatter } from "@/helpers/formatter";
+
+const StyledText = styled("text")(() => ({
+  fill: "#374151",
+  textAnchor: "middle",
+  dominantBaseline: "central",
+  fontSize: 20,
+  fontWeight: 700,
+}));
+
+const sizing = {
+  margin: { right: 5 },
+  width: 500,
+  height: 500,
+  legend: { hidden: true },
+};
+
+function PieCenterLabel({ children }: { children: React.ReactNode }) {
+  const { width, height, left, top } = useDrawingArea();
+  return (
+    <StyledText x={left + width / 2} y={top + height / 2}>
+      {children}
+    </StyledText>
+  );
+}
 
 const DashboardPieChart = ({ data }: { data: ITopRevenue }) => {
   const transformedData = [
-    { value: data?.direct, colors: "#0088FE" },
-    { value: data?.other, colors: "#00C49F" },
-    { value: data?.paid, colors: "#FFBB28" },
-    { value: data?.social, colors: "#FF8042" },
+    { value: data?.direct, color: "#0088FE", label: "Direct" },
+    { value: data?.other, color: "#00C49F", label: "Other" },
+    { value: data?.paid, color: "#FFBB28", label: "Paid" },
+    { value: data?.social, color: "#FF8042", label: "Social" },
   ];
+
   return (
-    <div className="flex items-center justify-center">
-      <PieChart
-        width={400}
-        height={400}
-        className="flex items-center justify-center"
-      >
-        <Pie
-          data={transformedData}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={100}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {transformedData?.map((item, index) => (
-            <Cell
-              key={`cell-${index}`}
-              // fill={COLORS[index % COLORS.length]}
-              fill={item.colors}
-            />
-          ))}
-        </Pie>
-      </PieChart>
-    </div>
+    <PieChart
+      series={[
+        {
+          outerRadius: 120,
+          innerRadius: 80,
+          data: transformedData,
+          cx: 250,
+          cy: 250,
+        },
+      ]}
+      sx={{
+        [`& .${pieArcLabelClasses.root}`]: {
+          fill: "white",
+          fontSize: 14,
+        },
+      }}
+      {...sizing}
+    >
+      <PieCenterLabel>{formatter(data?.total)}</PieCenterLabel>
+    </PieChart>
   );
 };
 
